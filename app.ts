@@ -1,2 +1,2 @@
-let grettings: string = "Hello Typescript!";
+let grettings: string = "Hello, How are you today?";
 console.log(grettings);

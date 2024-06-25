@@ -1,3 +1,3 @@
 "use strict";
-let grettings = "Hello Typescript!";
+let grettings = "Hello, How are you today?";
 console.log(grettings);
