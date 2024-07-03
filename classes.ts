@@ -1,4 +1,4 @@
-class Video{
+export class Video{
     private _producer: string = '';
     
      constructor(public title: string, private year: number){
@@ -21,7 +21,7 @@ class Video{
      }
  }
  
- class Popular extends Video {
+ export class Popular extends Video {
      constructor(title: string, year: number, public subject: string){
          super(title, year);
      }
@@ -32,5 +32,3 @@ class Video{
      }
  }
  
- let popularVideo = new Popular("Sathiya", 2008, "Romantic song");
- popularVideo.printItm();

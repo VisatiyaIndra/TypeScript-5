@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Popular = exports.Video = void 0;
 class Video {
     constructor(title, year) {
         this.title = title;
@@ -19,6 +21,7 @@ class Video {
         this._producer = name;
     }
 }
+exports.Video = Video;
 class Popular extends Video {
     constructor(title, year, subject) {
         super(title, year);
@@ -29,5 +32,4 @@ class Popular extends Video {
         console.log(`The subject is ${this.subject}`);
     }
 }
-let popularVideo = new Popular("Sathiya", 2008, "Romantic song");
-popularVideo.printItm();
+exports.Popular = Popular;

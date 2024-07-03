@@ -23,6 +23,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Example = __importStar(require("./example1"));
-let example = new Example.main();
-example.Run();
+exports.main = void 0;
+const functions = __importStar(require("./functions"));
+class main {
+    constructor() { }
+    Run() {
+        let movie = functions.GetReview("George Lucas");
+        console.log("List of all moview by the director:");
+        movie.forEach(x => console.log(`    ${x}`));
+        let LogeMessageWithArrowFunc = (message) => console.log(`${message}`);
+        console.log("Most popular bollywood movie review:");
+        functions.PrintMovieInfo("3 Idiots", 2009, "Aamir Khan", "Sharman Joshi", "R Madhavan", "Kareena Kapoor", "Boman Irani");
+        functions.LogMessage("Enjoy the day!");
+        //The example of arrow function
+        LogeMessageWithArrowFunc("Hey! I'm using arrow function.");
+    }
+}
+exports.main = main;

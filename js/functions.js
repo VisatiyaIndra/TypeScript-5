@@ -6,6 +6,11 @@
 //         return Math.floor(Math.random() * 10);
 //     }        
 // }
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PrintMovieInfo = PrintMovieInfo;
+exports.LogMessage = LogMessage;
+exports.GetAllMovies = GetAllMovies;
+exports.GetReview = GetReview;
 function PrintMovieInfo(title, yearReleased, ...cast) {
     console.log(`Title: ${title}`);
     console.log(`Year released: ${yearReleased}`);
@@ -51,17 +56,3 @@ function GetReview(director, streaming) {
     }
     return searchMovies;
 }
-let movie = GetReview("George Lucas");
-movie.forEach(x => console.log(`${x}`));
-//let LogeMessageWithArrowFunc = (message: string) => console.log(`${message}`);
-// let movie1: string = "Titanic";
-// let movie2: string = "Avengers";
-// let review = GetReview(movie2);
-// if(typeof(review) == "string"){
-//     console.log(`The moview ${movie1} review: ${review}`)
-// }else{
-//     console.log(`The rating for the movie ${movie2}: ${review}/10`)
-// }
-//PrintMovieInfo("3 Idiots", 2009, "Aamir Khan", "Sharman Joshi", "R Madhavan", "Kareena Kapoor", "Boman Irani");
-// LogMessage("Enjoy the day!");
-// LogeMessageWithArrowFunc("Hey! I'm using arrow function.");

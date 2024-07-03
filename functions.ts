@@ -6,7 +6,7 @@
 //     }        
 // }
 
-function PrintMovieInfo(title: string, yearReleased: number, ...cast: string[]){
+export function PrintMovieInfo(title: string, yearReleased: number, ...cast: string[]){
     
     console.log(`Title: ${title}`);
     console.log(`Year released: ${yearReleased}`);
@@ -17,11 +17,11 @@ function PrintMovieInfo(title: string, yearReleased: number, ...cast: string[]){
     }
 }
 
-function LogMessage(message: string): void{
+export function LogMessage(message: string): void{
     console.log(`${message}`);
 }
 
-function GetAllMovies() {
+export function GetAllMovies() {
     return [
       { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
       { title: 'The Empire Strikes Back', director: 'Irvin Kershner', yearReleased: 1980, streaming: false },
@@ -37,7 +37,7 @@ function GetAllMovies() {
 
 // function GetReview(director: string): string[];
 // function GetReview(director: string, streaming: boolean): string[];
-function GetReview(director: string, streaming?: boolean): string[]{
+export function GetReview(director: string, streaming?: boolean): string[]{
     const allMovies = GetAllMovies();
     let searchMovies: string[] = [];
 
@@ -57,24 +57,4 @@ function GetReview(director: string, streaming?: boolean): string[]{
     return searchMovies;
 }
 
-let movie = GetReview("George Lucas");
-movie.forEach(x => console.log(`${x}`));
-
-//let LogeMessageWithArrowFunc = (message: string) => console.log(`${message}`);
-
-// let movie1: string = "Titanic";
-// let movie2: string = "Avengers";
-
-// let review = GetReview(movie2);
-
-// if(typeof(review) == "string"){
-//     console.log(`The moview ${movie1} review: ${review}`)
-// }else{
-//     console.log(`The rating for the movie ${movie2}: ${review}/10`)
-// }
-
-//PrintMovieInfo("3 Idiots", 2009, "Aamir Khan", "Sharman Joshi", "R Madhavan", "Kareena Kapoor", "Boman Irani");
-
-// LogMessage("Enjoy the day!");
-// LogeMessageWithArrowFunc("Hey! I'm using arrow function.");
 
