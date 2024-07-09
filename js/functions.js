@@ -1,27 +1,8 @@
 "use strict";
-// function GetReview(title: string): string | number{
-//     if(title == "Titanic"){
-//         return "This is the fantastic movie!";
-//     }else{
-//         return Math.floor(Math.random() * 10);
-//     }        
-// }
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PrintMovieInfo = PrintMovieInfo;
-exports.LogMessage = LogMessage;
 exports.GetAllMovies = GetAllMovies;
-exports.GetReview = GetReview;
-function PrintMovieInfo(title, yearReleased, ...cast) {
-    console.log(`Title: ${title}`);
-    console.log(`Year released: ${yearReleased}`);
-    console.log("Cast: ");
-    for (const name of cast) {
-        console.log(`   ${name}`);
-    }
-}
-function LogMessage(message) {
-    console.log(`${message}`);
-}
+exports.PrintMovieInfo = PrintMovieInfo;
+exports.GetTitles = GetTitles;
 function GetAllMovies() {
     return [
         { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
@@ -35,24 +16,35 @@ function GetAllMovies() {
         { title: 'The Rise of Skywalker', director: 'J.J. Abrams', yearReleased: 2019, streaming: true }
     ];
 }
-// function GetReview(director: string): string[];
-// function GetReview(director: string, streaming: boolean): string[];
-function GetReview(director, streaming) {
+function GetReview(title) {
+    if (title == 'A New Hope') {
+        return 'An instant classic!';
+    }
+    else {
+        return Math.floor(Math.random() * 10);
+    }
+}
+function PrintMovieInfo(movie) {
+    console.log(`Title: ${movie.title}`);
+    console.log(`Year Released: ${movie.yearReleased}`);
+    console.log(`Director: ${movie.director}`);
+}
+function GetTitles(director, streaming) {
     const allMovies = GetAllMovies();
-    let searchMovies = [];
+    const searchResults = [];
     if (streaming !== undefined) {
         for (let movie of allMovies) {
-            if (movie.director == director && movie.streaming == streaming) {
-                searchMovies.push(`Movie: ${movie.title}, Year Released: ${movie.yearReleased}`);
+            if (movie.director === director && movie.streaming === streaming) {
+                searchResults.push(movie.title);
             }
         }
     }
     else {
         for (let movie of allMovies) {
-            if (movie.director == director) {
-                searchMovies.push(`Movie: ${movie.title}, Year Released: ${movie.yearReleased}`);
+            if (movie.director === director) {
+                searchResults.push(movie.title);
             }
         }
     }
-    return searchMovies;
+    return searchResults;
 }

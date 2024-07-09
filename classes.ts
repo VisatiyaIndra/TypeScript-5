@@ -1,34 +1,64 @@
-export class Video{
-    private _producer: string = '';
-    
-     constructor(public title: string, private year: number){
-         console.log("Creating a new video....");        
-     }
- 
-     printItm(): void{
-         console.log(`${this.title} was released in ${this.year}.`);
-         if(this.Producer !== ''){
-             console.log(`The producer is ${this.Producer}`);
-         }        
-     }
- 
-     get Producer(): string{
-         return this._producer.toUpperCase();
-     }
- 
-     set Producer(name: string){
-         this._producer = name;
-     }
- }
- 
- export class Popular extends Video {
-     constructor(title: string, year: number, public subject: string){
-         super(title, year);
-     }
- 
-     printItm(): void {
-         super.printItm();
-         console.log(`The subject is ${this.subject}`);
-     }
- }
- 
+import { CastMember } from "./interfaces";
+
+export class Performer implements CastMember {
+
+  name: string = "";
+  email: string = "";
+  role: string = "";
+
+  rehearse(sceneNumber: number): void {
+    console.log(`${this.name} is rehearsing scene number ${sceneNumber}.`);
+  }
+
+}
+
+abstract class Video {
+
+  private _producer: string = '';
+  static medium: string = 'Audio/Visual';
+
+  get producer(): string {
+    return this._producer.toUpperCase();
+  }
+
+  set producer(newProducer: string) {
+    this._producer = newProducer;
+  }
+
+  constructor(public title: string, protected year: number) {
+    console.log('Creating a new Video...');
+  }
+
+  printItem(): void {
+    console.log(`${this.title} was released in ${this.year}.`);
+    console.log(`Medium: ${Video.medium}`);
+  }
+
+  abstract printCredits(): void;
+}
+
+export class Documentary extends Video {
+
+  constructor(newTitle: string, newYear: number, public subject: string) {
+    super(newTitle, newYear);
+  }
+
+  printItem(): void {
+    super.printItem();
+    console.log(`Subject: ${this.subject} (${this.year})`);
+  }
+
+  printCredits(): void {
+    console.log(`Producer: ${this.producer}`);
+  }
+}
+
+export let Musical = class extends Video {
+  printCredits(): void {
+    console.log(`Musical credits: ${this.producer}`);
+  }
+}
+
+export class Course extends class { title: string = ''; } {
+  subject: string = '';
+}
