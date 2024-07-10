@@ -23,7 +23,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const classes_1 = require("./classes");
 const Utility = __importStar(require("./functions"));
 const _ = __importStar(require("lodash"));
-let allMovies = Utility.GetAllMovies();
-allMovies.forEach(movie => console.log(_.snakeCase(movie.title)));
+function useLodash() {
+    let allMovies = Utility.GetAllMovies();
+    allMovies.forEach(movie => console.log(_.snakeCase(movie.title)));
+}
+function decoratorExample() {
+    //Decorator example:
+    let documentary = new classes_1.Documentary("The Man with 1000 babies", 2024, "Human");
+    documentary.printItem();
+}
+decoratorExample();
