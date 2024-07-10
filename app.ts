@@ -1,5 +1,5 @@
 import { Movie, Logger, CastMember as Actor } from "./interfaces";
-import { Performer, Documentary } from "./classes";
+import { Performer, Documentary, Favorites } from "./classes";
 import * as Utility from "./functions";
 
 function getMoviesByDirector(director: string): Promise<string[]>{
@@ -42,10 +42,23 @@ async function getMoviesByDirectorAsync(director:string) {
     printMovieTitles(titles);
 } 
 
-console.log('Searching.....');
-const director: string = "George Lucas";
+function callAsyncMethod(){
+    console.log('Searching.....');
+    const director: string = "George Lucas";
 
-getMoviesByDirectorAsync(director)
-.catch(error => console.log(error));
+    getMoviesByDirectorAsync(director)
+    .catch(error => console.log(error));
 
-console.log('Search submitted...');
+    console.log('Search submitted...');
+}
+
+let allMovies: Array<Movie> = Utility.GetAllMovies();
+
+let favorites: Favorites<Movie> = new Favorites<Movie>();
+
+allMovies.forEach(movie => favorites.add(movie));
+
+let topMovie: Movie = favorites.getFirst();
+
+let findMovie: Movie = favorites.filterItem("A New Hope");
+console.log(`Movie: Title - ${findMovie.title} Year Released: ${findMovie.yearReleased}`);

@@ -32,6 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const classes_1 = require("./classes");
 const Utility = __importStar(require("./functions"));
 function getMoviesByDirector(director) {
     let ps = new Promise((resolve, reject) => {
@@ -68,8 +69,16 @@ function getMoviesByDirectorAsync(director) {
         printMovieTitles(titles);
     });
 }
-console.log('Searching.....');
-const director = "George Lucas";
-getMoviesByDirectorAsync(director)
-    .catch(error => console.log(error));
-console.log('Search submitted...');
+function callAsyncMethod() {
+    console.log('Searching.....');
+    const director = "George Lucas";
+    getMoviesByDirectorAsync(director)
+        .catch(error => console.log(error));
+    console.log('Search submitted...');
+}
+let allMovies = Utility.GetAllMovies();
+let favorites = new classes_1.Favorites();
+allMovies.forEach(movie => favorites.add(movie));
+let topMovie = favorites.getFirst();
+let findMovie = favorites.filterItem("A New Hope");
+console.log(`Movie: Title - ${findMovie.title} Year Released: ${findMovie.yearReleased}`);

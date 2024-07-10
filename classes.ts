@@ -1,4 +1,4 @@
-import { CastMember } from "./interfaces";
+import { CastMember, FavoriteItem } from "./interfaces";
 
 export class Performer implements CastMember {
 
@@ -61,4 +61,25 @@ export let Musical = class extends Video {
 
 export class Course extends class { title: string = ''; } {
   subject: string = '';
+}
+
+
+export class Favorites<T extends FavoriteItem>{
+  private _items: Array<T>= new Array<T>;
+
+  add(item: T){
+    this._items.push(item);
+  }
+
+  getFirst(): T{    
+    return this._items[0];
+  }
+  
+  getAllItems(): Array<T>{
+    return this._items;
+  }
+
+  filterItem(title: string): T{
+    return this._items.filter(f => f.title == title)[0];
+  }
 }
