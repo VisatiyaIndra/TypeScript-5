@@ -36,3 +36,4 @@ function decoratorExample() {
     documentary.printItem();
 }
 decoratorExample();
+//# sourceMappingURL=app.js.map

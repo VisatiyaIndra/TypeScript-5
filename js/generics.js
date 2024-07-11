@@ -85,3 +85,4 @@ function runGeneric() {
     let findMovie = favorites.filterItem("A New Hope");
     console.log(`Movie: Title - ${findMovie.title} Year Released: ${findMovie.yearReleased}`);
 }
+//# sourceMappingURL=generics.js.map

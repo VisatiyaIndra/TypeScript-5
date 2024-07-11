@@ -129,3 +129,4 @@ class Favorites {
     }
 }
 exports.Favorites = Favorites;
+//# sourceMappingURL=classes.js.map
